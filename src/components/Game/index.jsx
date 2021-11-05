@@ -7,7 +7,7 @@ export const Game = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch(`http://hp-api.herokuapp.com/api/characters/students`)
+    fetch(`https://hp-api.herokuapp.com/api/characters/students`)
       .then((res) => res.json())
       .then((res) => setStudents(res));
   }, []);
