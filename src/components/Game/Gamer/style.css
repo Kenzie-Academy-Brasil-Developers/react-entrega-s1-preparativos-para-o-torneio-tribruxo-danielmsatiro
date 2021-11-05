@@ -5,6 +5,10 @@
   height: 140px;
   box-shadow: 3px 3px 10px 2px black;
   flex: 1;
+  transition: all 0.5s;
+}
+.card_gamer:hover{
+    border-color: red;
 }
 
 h2,
