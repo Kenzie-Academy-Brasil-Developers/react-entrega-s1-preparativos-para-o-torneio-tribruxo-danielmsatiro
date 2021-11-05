@@ -18,6 +18,7 @@ export const Game = () => {
       .filter(
         (item, idx, arr) => arr.findIndex((e) => e.house === item.house) === idx
       )
+      .filter(item=>item.house!=='')
       .map((item) => item.house);
 
   /* Draw a house among an array of houses */
