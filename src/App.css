@@ -1,5 +1,5 @@
 .App {
-  font-family: 'Nunito';
+  font-family: "Nunito";
   text-align: center;
   background-image: url(https://ideiasradicais.com.br/wp-content/uploads/2021/06/Harry-Potter-scaled.jpg);
   background-size: cover;
@@ -13,12 +13,12 @@
   color: white;
 }
 
-.bg-fundo{
+.bg-fundo {
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4))
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6));
 }

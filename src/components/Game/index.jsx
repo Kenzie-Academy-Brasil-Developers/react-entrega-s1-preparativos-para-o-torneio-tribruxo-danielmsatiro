@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Gamer } from "./Gamer/Index";
+import "./style.css";
 
 export const Game = () => {
   const [count, setCount] = useState(0);
@@ -47,13 +48,13 @@ export const Game = () => {
   };
 
   return (
-    <>
-      <div className="card">
+    <div className="card">
+      <div className="card_game">
         {game(students).map((item, idx) => (
           <Gamer key={idx} gamer={item} />
         ))}
       </div>
       <button onClick={() => setCount(count + 1)}>Tentar Novamente</button>
-    </>
+    </div>
   );
 };
