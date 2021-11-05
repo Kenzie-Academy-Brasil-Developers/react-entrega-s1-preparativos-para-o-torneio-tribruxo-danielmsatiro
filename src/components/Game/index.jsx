@@ -9,11 +9,9 @@ export const Game = () => {
     fetch(`http://hp-api.herokuapp.com/api/characters/students`)
       .then((res) => res.json())
       .then((res) => setStudents(res));
-  }, [count]);
+  }, []);
 
-  console.log(students); /* [] -> [objetos] */
-
-  /* Monta um array de houses únicas: */
+  /* Build an array of unique houses: */
   const buildArrayHouses = (students) =>
     students
       .filter(
@@ -21,27 +19,40 @@ export const Game = () => {
       )
       .map((item) => item.house);
 
-  console.log(buildArrayHouses(students)); /* [] -> [houses] */
-
-  /* Sorteia uma house entre um array de houses */
+  /* Draw a house among an array of houses */
   const randomHouse = (arrayHouses) =>
     arrayHouses[Math.floor(Math.random() * arrayHouses.length)];
 
-  /* Retira uma house já sorteada de um array */
+  /* Remove an already drawn house from an array */
   const removeHouse = (house, arrayHouses) =>
     arrayHouses.filter((item) => item !== house);
 
-  /* Sorteia um estudante tendo uma house definida  */
+  /* Draw a student with a defined house */
   const randomStudent = (house, students) => {
     const filter = students.filter((item) => item.house === house);
     return filter[Math.floor(Math.random() * filter.length)];
   };
 
+  /* Integrates functions and draws 3 students from different houses */
+  const game = (students) => {
+    let arrayHouses = buildArrayHouses(students);
+    let selectedStudents = [];
+    for (let i = 1; i <= 3; i++) {
+      let house = randomHouse(arrayHouses);
+      arrayHouses = removeHouse(house, arrayHouses);
+      let student = randomStudent(house, students);
+      selectedStudents = [...selectedStudents, student];
+    }
+    return selectedStudents;
+  };
+
   return (
     <>
-      <h1>Game</h1>
-      {/* Fazer o map para cada gamer */}
-      {/* <Gamer house={randomHouse()} /> */}
+      <div className="card">
+        {game(students).map((item, idx) => (
+          <Gamer key={idx} gamer={item} />
+        ))}
+      </div>
       <button onClick={() => setCount(count + 1)}>Tentar Novamente</button>
     </>
   );

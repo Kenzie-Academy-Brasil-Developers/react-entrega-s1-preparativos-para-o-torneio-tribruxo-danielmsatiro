@@ -1,15 +1,9 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
-
-export const Gamer = ({ house }) => {
-/*   const [student, setStudent] = useState({}); */
-
-/*   useEffect(() => {
-    fetch(`http://hp-api.herokuapp.com/api/characters/house/${house}`)
-      .then((res) => res.json)
-      .then((res) => randomStudent(res))
-      .then((res) => setStudent(res));
-  }, []); */
-
-  return <h1>gamer{house}</h1>;
+export const Gamer = ({ gamer }) => {
+  return (
+    <div className="card_gamer">
+      <h1>{gamer?.name}</h1>
+      <h2>{gamer?.house}</h2>
+      <h3>{gamer?.species}</h3>
+    </div>
+  );
 };
